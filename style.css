@@ -1,0 +1,626 @@
+/* CSS Variables & Reset */
+:root {
+  --primary-color: #1a1a1a;
+  --secondary-color: #f7f7f7;
+  --accent-color: #c9a87c;
+  --text-color: #333333;
+  --bg-color: #ffffff;
+  --font-main: 'Jost', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  line-height: 1.6;
+  overflow-x: hidden; 
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Announcement Bar with Marquee Effect */
+.announcement-bar {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 8px 0; 
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  overflow: hidden; /* Hides the text when it goes off the edge of the screen */
+  white-space: nowrap; /* Forces the text to stay on one single line */
+  box-sizing: border-box;
+}
+
+.marquee-text {
+  display: inline-block;
+  animation: marquee 15s linear infinite; /* 15s controls the speed. Lower = faster! */
+}
+
+/* The actual sliding animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(100vw); /* Starts all the way on the right side */
+  }
+  100% {
+    transform: translateX(-100%); /* Slides all the way off the left side */
+  }
+}
+/* --- Hero Slider Styles --- */
+.hero-slider {
+  position: relative;
+  height: calc(100vh - 38px); 
+  width: 100%;
+  overflow: hidden; 
+}
+
+/* --- INITIAL HEADER: Transparent Overlay --- */
+header {
+  position: absolute;
+  top: 38px; 
+  left: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 5%;
+  z-index: 1000;
+  background: transparent;
+  color: #fff;
+  transition: all 0.3s ease; 
+}
+
+/* --- SCROLLED HEADER: Sticky Solid White --- */
+header.scrolled {
+  position: fixed;
+  top: 0;
+  background-color: var(--bg-color); 
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+  padding: 5px 5%; 
+}
+
+/* --- Logo Styles --- */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%; 
+  background-color: transparent;
+  overflow: hidden; 
+  transition: all 0.3s ease; 
+}
+
+header.scrolled .logo {
+  width: 40px;  
+  height: 40px; 
+}
+
+.logo img {
+  width: 150%;  
+  height: 150%;
+  object-fit: cover;
+  object-position: center;
+  clip-path: circle(50% at 50% 50%); 
+}
+
+nav {
+  display: flex;
+  justify-self: center;
+  gap: 30px;
+}
+
+nav a {
+  font-size: 1rem;
+  font-weight: 400;
+  transition: color 0.3s;
+  color: #fff; 
+}
+
+header.scrolled nav a {
+  color: var(--text-color); 
+}
+
+nav a:hover, header.scrolled nav a:hover {
+  color: var(--accent-color);
+}
+
+/* Header Icons */
+.header-icons {
+  display: flex;
+  gap: 20px; 
+  align-items: center;
+  justify-self: end; 
+}
+
+.header-icons a, .cart-wrapper {
+  color: #fff; 
+  font-size: 1.4rem; 
+  transition: color 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+header.scrolled .header-icons a, 
+header.scrolled .cart-wrapper {
+  color: var(--text-color);
+}
+
+.header-icons a:hover, .cart-wrapper:hover {
+  color: var(--accent-color);
+}
+
+.cart-wrapper {
+  position: relative; 
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: var(--accent-color);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  height: 18px;
+  min-width: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}
+
+.slider-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  transition: transform 0.5s ease-in-out; 
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: flex-start; 
+  padding-left: 10%; 
+}
+
+.slide-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  max-width: 550px;
+  text-align: left;
+}
+
+.slide-content h1 {
+  font-size: 3.5rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.slide-content p {
+  font-size: 1.1rem;
+  margin-bottom: 35px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+.btn {
+  padding: 12px 30px;
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+  border: none;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+/* Slider Navigation Arrows */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 15px 20px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s;
+}
+
+.slider-btn:hover {
+  background-color: var(--accent-color);
+}
+
+.slider-btn.prev {
+  left: 20px;
+}
+
+.slider-btn.next {
+  right: 20px;
+}
+
+/* --- General Section Settings --- */
+.section {
+  padding: 80px 5%;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+
+/* --- Best Sellers (Products) --- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  text-align: left;
+}
+
+.product-card {
+  cursor: pointer;
+  background-color: var(--bg-color);
+  border-radius: 6px;
+  padding-bottom: 15px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.product-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background-color: var(--secondary-color);
+  margin-bottom: 15px;
+}
+
+.product-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.4s ease;
+}
+
+.img-main {
+  z-index: 1;
+  opacity: 1;
+}
+
+.img-hover {
+  z-index: 2;
+  opacity: 0;
+}
+
+.product-card:hover .img-hover {
+  opacity: 1;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--accent-color);
+  color: #fff;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  z-index: 10;
+}
+
+.product-info h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.price {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.price span {
+  text-decoration: line-through;
+  color: #aaa;
+  margin-right: 8px;
+  font-size: 0.9rem;
+}
+
+.btn-add {
+  width: 100%;
+  padding: 12px 0;
+  background: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  text-transform: uppercase;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-add:hover {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+
+/* --- Alternating Split Features Section (About Us) --- */
+.split-features-section {
+  padding: 60px 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.feature-row:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.feature-row {
+  display: flex;
+  align-items: center; /* Changed from 'stretch' so it doesn't pull the image height too tall */
+  gap: 80px; 
+  margin-bottom: 100px;
+}
+
+.feature-image {
+  flex: 0.4; /* Reduced from 0.5 to make it even smaller! */
+  overflow: hidden;
+  border-radius: 16px; 
+}
+
+.feature-image img {
+  width: 100%;
+  height: 430px; /* Changed from 100% so the image shrinks to its natural, smaller size */
+  object-fit: cover; 
+  display: block;
+}
+
+.feature-text {
+  flex: 1;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.feature-text .subheading {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #777;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.feature-text h2 {
+  font-size: 2.8rem;
+  font-weight: 500;
+  margin-bottom: 25px;
+  color: var(--primary-color);
+  line-height: 1.1;
+}
+
+.feature-text p {
+  font-size: 1.15rem;
+  color: #444;
+  line-height: 1.7;
+}
+
+/* --- Clean 3-Column Footer Styles --- */
+.site-footer {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  padding: 60px 5% 30px;
+  font-family: var(--font-main), sans-serif;
+  text-align: left; 
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.footer-col h4 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.footer-col ul {
+  list-style: none; 
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: var(--accent-color);
+}
+
+.social-list-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-list-item i {
+  font-size: 1.4rem;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.footer-col ul li a.social-list-item:hover i {
+  color: var(--accent-color);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 30px;
+}
+
+.footer-bottom-left p {
+  font-size: 0.85rem;
+  color: #ccc;
+}
+
+/* --- Page Load & Slide Animations --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-content h1, .slide-content p, .slide-content .btn {
+  opacity: 0; 
+  animation: none; 
+}
+
+.slide.active .slide-content h1,
+.slide.active .slide-content p,
+.slide.active .slide-content .btn {
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.slide.active .slide-content h1 { animation-delay: 0.2s; }
+.slide.active .slide-content p { animation-delay: 0.4s; }
+.slide.active .slide-content .btn { animation-delay: 0.6s; }
+
+/* --- Scroll Reveal Animations (Split layouts & Cards) --- */
+.reveal, .reveal-card {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal.active, .reveal-card.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.product-grid .product-card:nth-child(1).reveal-card { transition-delay: 0s; }
+.product-grid .product-card:nth-child(2).reveal-card { transition-delay: 0.15s; }
+.product-grid .product-card:nth-child(3).reveal-card { transition-delay: 0.3s; }
+.product-grid .product-card:nth-child(4).reveal-card { transition-delay: 0.45s; }
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 992px) {
+  .feature-row {
+    gap: 40px;
+  }
+  .feature-text h2 {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  nav { display: none; }
+  
+  header, header.scrolled {
+    padding: 15px 5%;
+  }
+
+  .header-icons { gap: 15px; }
+  
+  .slide {
+    padding-left: 5%;
+    padding-right: 5%;
+    justify-content: center; 
+  }
+  
+  .slide-content {
+    text-align: center;
+    padding: 0 20px;
+  }
+  
+  .slide-content h1 { font-size: 2.5rem; }
+  .slider-btn {
+    font-size: 1.5rem;
+    padding: 10px 15px;
+  }
+  
+  .section { padding: 50px 5%; }
+  
+  .feature-row, .feature-row:nth-child(even) {
+    flex-direction: column; 
+    gap: 30px;
+    margin-bottom: 70px;
+  }
+
+  .feature-image img {
+    height: 350px; 
+  }
+
+  .feature-text { text-align: center; }
+  .feature-text h2 { font-size: 2.2rem; }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  
+  .footer-top {
+    grid-template-columns: 1fr; 
+  }
+}
+
+@media (max-width: 480px) {
+  .slide-content h1 { font-size: 2rem; }
+  .slider-btn { display: none; }
+}
