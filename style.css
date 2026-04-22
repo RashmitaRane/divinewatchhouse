@@ -705,3 +705,38 @@ header.scrolled .cart-wrapper {
     background-image: url('mobile-banner.jpg') !important;
   }
 }
+/* ===== KEEP ABOUT US SIDE-BY-SIDE ON MOBILE ===== */
+
+@media (max-width: 768px) {
+
+  .feature-row,
+  .feature-row:nth-child(even) {
+    flex-direction: row; /* keep side-by-side */
+    align-items: center;
+    gap: 15px;
+  }
+
+  .feature-image {
+    flex: 0.5;
+  }
+
+  .feature-image img {
+    height: 200px; /* smaller but proportional */
+    object-fit: cover;
+  }
+
+  .feature-text {
+    flex: 0.5;
+    text-align: left;
+  }
+
+  .feature-text h2 {
+    font-size: 1.2rem;
+    line-height: 1.2;
+  }
+
+  .feature-text p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+}
