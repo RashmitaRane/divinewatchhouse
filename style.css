@@ -45,7 +45,15 @@ a {
   animation: marquee 15s linear infinite; /* 15s controls the speed. Lower = faster! */
 }
 
-
+/* The actual sliding animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(100vw); /* Starts all the way on the right side */
+  }
+  100% {
+    transform: translateX(-100%); /* Slides all the way off the left side */
+  }
+}
 /* --- Hero Slider Styles --- */
 .hero-slider {
   position: relative;
@@ -507,6 +515,17 @@ header.scrolled .cart-wrapper {
   color: #ccc;
 }
 
+/* --- Page Load & Slide Animations --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .slide-content h1, .slide-content p, .slide-content .btn {
   opacity: 0; 
@@ -542,10 +561,7 @@ header.scrolled .cart-wrapper {
 .product-grid .product-card:nth-child(4).reveal-card { transition-delay: 0.45s; }
 
 
-/* =====================================================
-   RESPONSIVE STYLES — IMPROVED
-   ===================================================== */
- 
+/* code for mobile responsive */
 /* --- Tablet: 993px – 1199px --- */
 @media (max-width: 1199px) {
   .feature-text h2 { font-size: 2.4rem; }
@@ -597,8 +613,8 @@ header.scrolled .cart-wrapper {
  
   /* Hero Slider */
   .hero-slider {
-    height: 90svh; /* uses small viewport height — avoids browser chrome issues */
-    min-height: 480px;
+    height: 55vh;
+    min-height: 360px;
   }
  
   .slide {
@@ -712,8 +728,8 @@ header.scrolled .cart-wrapper {
  
   /* Hero */
   .hero-slider {
-    height: 85svh;
-    min-height: 400px;
+    height: 50vh;
+    min-height: 300px;
   }
  
   .slide {
@@ -768,5 +784,6 @@ header.scrolled .cart-wrapper {
     gap: 20px;
   }
  
-  .hero-slider { min-height: 360px; }
+  .hero-slider { min-height: 280px; }
 }
+ 
