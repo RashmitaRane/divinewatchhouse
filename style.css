@@ -561,7 +561,10 @@ header.scrolled .cart-wrapper {
 .product-grid .product-card:nth-child(4).reveal-card { transition-delay: 0.45s; }
 
 
-/* code for mobile responsive */
+/* =====================================================
+   RESPONSIVE STYLES — IMPROVED
+   ===================================================== */
+ 
 /* --- Tablet: 993px – 1199px --- */
 @media (max-width: 1199px) {
   .feature-text h2 { font-size: 2.4rem; }
@@ -586,242 +589,204 @@ header.scrolled .cart-wrapper {
 @media (max-width: 768px) {
   /* Announcement bar */
   .announcement-bar { font-size: 0.75rem; }
-
+ 
   /* Header */
   nav { display: none; }
-
+ 
   header {
     grid-template-columns: auto auto;
     padding: 14px 5%;
     top: 36px;
   }
-
+ 
   header.scrolled {
     padding: 10px 5%;
     top: 0;
   }
-
+ 
   .header-icons {
     gap: 14px;
     font-size: 1.2rem;
   }
-
+ 
   .header-icons a,
   .cart-wrapper {
     font-size: 1.25rem;
   }
-
-  /* Hero Slider — Flipkart-style compact banner */
+ 
+  /* Hero Slider */
   .hero-slider {
-    height: auto;
-    min-height: 0;
-    aspect-ratio: 16 / 9;
+    height: 55vh;
+    min-height: 360px;
   }
-
+ 
   .slide {
-    padding: 0;
-    padding-left: 5%;
-    padding-right: 45%;
-    justify-content: flex-start;
-    align-items: center;
-    padding-bottom: 0;
+    padding: 0 6%;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 80px;
   }
-
+ 
   .slide-content {
-    text-align: left;
+    text-align: center;
     max-width: 100%;
   }
-
+ 
   .slide-content h1 {
-    font-size: clamp(0.95rem, 3.5vw, 1.3rem);
-    margin-bottom: 4px;
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    margin-bottom: 12px;
   }
-
+ 
   .slide-content p {
-    font-size: clamp(0.6rem, 2vw, 0.75rem);
-    margin-bottom: 10px;
-    line-height: 1.35;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    font-size: clamp(0.85rem, 3.5vw, 1rem);
+    margin-bottom: 24px;
+    line-height: 1.5;
   }
-
+ 
   .btn {
-    padding: 6px 12px;
-    font-size: 0.65rem;
-    letter-spacing: 0.5px;
+    padding: 11px 26px;
+    font-size: 0.9rem;
   }
-
+ 
   .slider-btn {
-    font-size: 1rem;
-    padding: 6px 10px;
+    font-size: 1.4rem;
+    padding: 10px 14px;
   }
-
-  /* Products — Flipkart-style compact 2-col grid */
-  .section { padding: 30px 3%; }
-
-  .section-title { font-size: 1.4rem; margin-bottom: 20px; }
-
+ 
+  /* Products */
+  .section { padding: 50px 5%; }
+ 
+  .section-title { font-size: 1.6rem; margin-bottom: 28px; }
+ 
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 16px;
   }
-
-  .product-card { padding-bottom: 10px; }
-
-  .product-image-wrapper {
-    aspect-ratio: 1 / 1;
-    margin-bottom: 8px;
-  }
-
-  .product-info { padding: 0 6px; }
-  .product-info h3 { font-size: 0.9rem; margin-bottom: 2px; }
-  .price           { font-size: 0.85rem; margin-bottom: 8px; }
-
+ 
+  .product-info h3 { font-size: 1rem; }
+  .price           { font-size: 0.95rem; margin-bottom: 10px; }
+ 
   .btn-add {
-    padding: 7px 0;
-    font-size: 0.72rem;
-    letter-spacing: 0.5px;
+    padding: 10px 0;
+    font-size: 0.8rem;
   }
-
-  .badge { font-size: 0.65rem; padding: 2px 6px; top: 6px; left: 6px; }
-
-  /* About / Features — keep side-by-side on mobile */
+ 
+  /* About / Features */
   .split-features-section {
-    padding: 30px 4%;
+    padding: 40px 5%;
   }
-
+ 
   .feature-row,
   .feature-row:nth-child(even) {
-    flex-direction: row;
-    gap: 16px;
-    margin-bottom: 40px;
-    align-items: center;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 60px;
   }
-
+ 
   .feature-image {
-    flex: 0 0 40%;
-    width: 40%;
-    border-radius: 10px;
+    width: 100%;
+    border-radius: 12px;
   }
-
+ 
   .feature-image img {
-    height: auto;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
+    height: 280px;
   }
-
+ 
   .feature-text {
-    flex: 1;
-    text-align: left;
-    padding: 0;
+    text-align: center;
   }
-
-  .feature-text .subheading { font-size: 0.75rem; margin-bottom: 6px; }
-  .feature-text h2    { font-size: 1.3rem; margin-bottom: 10px; }
-  .feature-text p     { font-size: 0.85rem; line-height: 1.5; }
-  .feature-text br    { display: none; }
-  .feature-text p + p { margin-top: 8px; }
-
+ 
+  .feature-text h2    { font-size: 2rem; }
+  .feature-text p     { font-size: 1rem; }
+ 
   /* Footer */
   .site-footer { padding: 48px 5% 24px; }
-
+ 
   .footer-top {
     grid-template-columns: repeat(2, 1fr);
     gap: 32px;
     margin-bottom: 36px;
   }
-
+ 
   /* Last footer col spans full width */
   .footer-col:last-child {
     grid-column: 1 / -1;
   }
 }
-
+ 
 /* --- Small Mobile: up to 480px --- */
 @media (max-width: 480px) {
   /* Announcement bar */
   .announcement-bar { font-size: 0.7rem; letter-spacing: 0.5px; }
-
+ 
   /* Header */
   header { padding: 12px 4%; top: 33px; }
   header.scrolled { padding: 8px 4%; }
-
+ 
   .logo         { width: 44px; height: 44px; }
   header.scrolled .logo { width: 34px; height: 34px; }
-
+ 
   .header-icons { gap: 12px; }
   .header-icons a, .cart-wrapper { font-size: 1.15rem; }
-
-  /* Hero — even smaller Flipkart-style banner */
+ 
+  /* Hero */
   .hero-slider {
-    aspect-ratio: 16 / 10;
+    height: 50vh;
+    min-height: 300px;
   }
-
+ 
   .slide {
-    padding: 0;
-    padding-left: 4%;
-    padding-right: 48%;
-    align-items: center;
+    padding: 0 5%;
+    padding-bottom: 70px;
+    align-items: flex-end;
   }
-
-  .slide-content h1 { font-size: clamp(0.9rem, 4vw, 1.2rem); margin-bottom: 3px; }
-  .slide-content p  { font-size: 0.62rem; margin-bottom: 8px; }
-
-  .btn { padding: 5px 10px; font-size: 0.6rem; }
-
+ 
+  .slide-content h1 { font-size: clamp(1.5rem, 7vw, 2rem); }
+  .slide-content p  { font-size: 0.85rem; margin-bottom: 20px; }
+ 
   /* Hide arrows on very small — swipe is enough */
   .slider-btn { display: none; }
-
+ 
   /* Products */
-  .section { padding: 24px 3%; }
-
+  .section { padding: 40px 4%; }
+ 
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-  }
-
-  .product-info { padding: 0 4px; }
-  .product-info h3 { font-size: 0.85rem; }
-  .price           { font-size: 0.8rem; }
-
-  .btn-add { font-size: 0.68rem; padding: 6px 0; letter-spacing: 0.5px; }
-
-  /* About — stay side-by-side */
-  .feature-row,
-  .feature-row:nth-child(even) {
     gap: 12px;
-    margin-bottom: 30px;
   }
-
-  .feature-image { flex: 0 0 42%; width: 42%; }
-  .feature-text h2   { font-size: 1.15rem; margin-bottom: 8px; }
-  .feature-text p    { font-size: 0.78rem; line-height: 1.45; }
-  .feature-text p + p { margin-top: 6px; }
-
+ 
+  .product-info { padding: 0 4px; }
+  .product-info h3 { font-size: 0.9rem; }
+  .price           { font-size: 0.88rem; }
+ 
+  .btn-add { font-size: 0.75rem; padding: 9px 0; letter-spacing: 0.5px; }
+ 
+  /* About */
+  .feature-image img { height: 230px; }
+  .feature-text h2   { font-size: 1.7rem; }
+  .feature-text p    { font-size: 0.95rem; }
+ 
   /* Footer */
   .footer-top {
     grid-template-columns: 1fr;
     gap: 28px;
   }
-
+ 
   .footer-col:last-child { grid-column: auto; }
-
+ 
   .footer-col h4 { font-size: 1rem; margin-bottom: 14px; }
 }
-
+ 
 /* --- Extra Small: up to 360px (very narrow phones) --- */
 @media (max-width: 360px) {
-  .slide-content h1 { font-size: 0.85rem; }
-  .slide-content p  { font-size: 0.58rem; }
-
+  .slide-content h1 { font-size: 1.4rem; }
+  .slide-content p  { font-size: 0.8rem; }
+ 
   .product-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 6px;
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
-
-  .feature-text h2 { font-size: 1rem; }
-  .feature-text p  { font-size: 0.72rem; }
+ 
+  .hero-slider { min-height: 280px; }
 }
  
